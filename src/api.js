@@ -88,3 +88,27 @@ export const getStats = async () => {
     return null;
   }
 };
+
+export const getConfig = async (type) => {
+  try {
+    const res = await axios.get('/api/config', {
+      data: {
+        type
+      }
+    });
+
+    return res.data
+  } catch (err) {
+    return null;
+  }
+};
+
+export const saveConfig = async (data, type) => {
+  try {
+    const res = await axios.post('/api/config', { data });
+
+    return res.data
+  } catch (err) {
+    return null;
+  }
+};

@@ -124,4 +124,15 @@ app.get('/api/stats', (req, res) => {
   })
 });
 
+app.get('/api/config', (req, res) => {
+  const result = fs.existsSync(path.resolve(process.cwd(), '.mocharc.js')) ? fs.readFileSync(path.resolve(process.cwd(), '.mocharc.js')).toString() : '{}';
+
+  res.json(result)
+});
+
+app.post('/api/config', (req, res) => {
+  console.log(req.body);
+  res.json('')
+});
+
 module.exports = server;

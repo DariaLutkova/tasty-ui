@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 
 import Testing from './pages/Testing';
 import Reports from './pages/Reports';
+import ConfigurationPage from './pages/Configuration';
 
 import { getProjectName } from "./api";
 
@@ -24,12 +25,14 @@ function App() {
         <Nav className="mr-auto">
           <NavLink to="/tests" className="nav-link">Tests</NavLink>
           <NavLink to="/reports" className="nav-link">Reports</NavLink>
+          <NavLink to="/configs" className="nav-link">Configuration</NavLink>
         </Nav>
       </Navbar>
       <Container className="App my-3" fluid>
         <Switch>
           <Route path="/tests" component={Testing} />
           <Route path="/reports" component={Reports} />
+          <Route path="/configs" component={ConfigurationPage} />
           <Redirect to="/tests" />
         </Switch>
       </Container>
